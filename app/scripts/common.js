@@ -1,7 +1,21 @@
-$(function () {
-
+(function () {
 	'use strict';
 
-	// Code here
+	/**
+	 * @ngdoc overview
+	 * @name timeTrackerApp
+	 * @description
+	 * # timeTrackerApp
+	 *
+	 * Main module of the application.
+	 */
 
-});
+	angular
+		.module('timeTrackerApp', [
+			'ngAnimate',
+			'ngResource',
+			'ngRoute',
+			'ngSanitize',
+			'ui.bootstrap'
+		]);
+})();
