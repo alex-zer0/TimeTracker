@@ -33,5 +33,5 @@ gulp.task 'stylus', ->
 		.pipe gulpif gutil.env.csscomb, csscomb()
 		.pipe gulp.dest paths.styles
 
-	gulp.src ['bootstrap.min.css'], cwd: 'components/bootstrap/dist/css'
+	gulp.src ['bootstrap.min.css'], cwd: 'components/bootstrap/dist/css/bootstrap.min.css'
 		.pipe gulp.dest paths.styles

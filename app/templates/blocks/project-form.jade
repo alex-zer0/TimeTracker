@@ -1,3 +1,13 @@
 div.project-form
-	input.form-control.project-form__control(type='text')
-	input.form-control.project-form__control(type='submit' ng-click='clickEvent($event)')
+	input.form-control.project-form__description(type='text' placeholder='What are you working on?')
+	button.btn.btn-default.project-form__link.dropdown-toggle#project-settings(data-toggle='dropdown' aria-expanded='false')
+		span.glyphicon.glyphicon-plus(style="font-size: 18px")
+		= ' SELECT PROJECT'
+	ul.dropdown-menu.projects-menu(aria-labelledby='project-settings')
+		li
+			a(href='#')= 'Action'
+		li
+			a(href='#')= 'Another Action'
+	button.btn.btn-default.project-form__price= '$'
+	input.form-control.text-center.project-form__time(type='text' placeholder='0 sec')
+	button.btn.btn-success.project-form__submit(ng-click='clickEvent($event)')= 'START'

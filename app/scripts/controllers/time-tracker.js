@@ -11,7 +11,7 @@
 	angular.module('timeTrackerApp')
 		.controller('timeTrackerCtrl', function ($scope) {
 			$scope.pageSettings = {
-				title: 'CSSR NOT BAD'
+				title: 'Time Tracker'
 			};
 		});
 })();
