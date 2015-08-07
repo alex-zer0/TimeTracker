@@ -11,6 +11,7 @@
 		.directive('projectForm', function () {
 			return {
 				restrict: 'C',
+				templateUrl: 'blocks/project-form.jade',
 				link: function (scope) {
 					scope.clickEvent = function ($event) {
 						console.log($event);

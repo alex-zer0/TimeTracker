@@ -15,8 +15,7 @@ div.project-form
 	button.btn.btn-default.project-form__price
 		span.glyphicon.glyphicon-usd
 	input.form-control.text-center.project-form__time(type='text' placeholder='{{projectOptions.time}}')
-	div.project-form__date
-		span.glyphicon.glyphicon-calendar
-		input.form-control(type='text' ng-model='projectOptions.date'
-		datepicker-popup='{{dateOptions.format}}' is-open='dateOptions.isOpened' ng-click="openCalendar($event)")
+	input.project-form__date.form-control(type='text' ng-model='projectOptions.date' close-text="Close" is-open='dateOptions.isOpened'
+		datepicker-popup="{{dateOptions.format}}" datepicker-options="dateOptions.options" ng-click="openCalendar($event)")
+	span.glyphicon.glyphicon-calendar
 	button.btn.btn-default.project-form__submit(ng-click='clickEvent($event)')= 'SAVE'
