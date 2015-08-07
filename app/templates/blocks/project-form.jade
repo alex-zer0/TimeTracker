@@ -1,13 +1,22 @@
 div.project-form
 	input.form-control.project-form__description(type='text' placeholder='What are you working on?')
 	button.btn.btn-default.project-form__link.dropdown-toggle#project-settings(data-toggle='dropdown' aria-expanded='false')
-		span.glyphicon.glyphicon-plus(style="font-size: 18px")
+		span.glyphicon.glyphicon-plus
 		= ' SELECT PROJECT'
 	ul.dropdown-menu.projects-menu(aria-labelledby='project-settings')
+		li
+			input.form-control(type='text' placeholder='Find project...')
 		li
 			a(href='#')= 'Action'
 		li
 			a(href='#')= 'Another Action'
-	button.btn.btn-default.project-form__price= '$'
-	input.form-control.text-center.project-form__time(type='text' placeholder='0 sec')
-	button.btn.btn-success.project-form__submit(ng-click='clickEvent($event)')= 'START'
+		li
+			a.btn(href='#')= 'Create Project'
+	button.btn.btn-default.project-form__price
+		span.glyphicon.glyphicon-usd
+	input.form-control.text-center.project-form__time(type='text' placeholder='{{projectOptions.time}}')
+	div.project-form__date
+		span.glyphicon.glyphicon-calendar
+		input.form-control(type='text' ng-model='projectOptions.date'
+		datepicker-popup='{{dateOptions.format}}' is-open='dateOptions.isOpened' ng-click="openCalendar($event)")
+	button.btn.btn-default.project-form__submit(ng-click='clickEvent($event)')= 'SAVE'

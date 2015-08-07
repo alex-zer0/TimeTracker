@@ -2,19 +2,20 @@
   "name": "time-tracker-cssr",
   "version": "0.0.0",
   "dependencies": {
-	"angular": "~1.3.15",
+	"angular": "~1.3.17",
 	"bootstrap": "^3.2.0",
-	"angular-animate": "~1.3.15",
-	"angular-resource": "~1.3.15",
-	"angular-route": "~1.3.15",
-	"angular-sanitize": "~1.3.15",
-	"angular-bootstrap": "~0.13.0"
+	"angular-animate": "~1.3.17",
+	"angular-resource": "~1.3.17",
+	"angular-route": "~1.3.17",
+	"angular-sanitize": "~1.3.17",
+	"angular-bootstrap": "~0.13.0",
+	"angular-touch": "^1.3.0"
   },
   "devDependencies": {
     "svg4everybody": "~1.0.0",
-	"angular-mocks": "~1.3.15"
+	"angular-mocks": "~1.3.17"
   },
   "resolutions": {
-	"angular": "~1.3.15"
+	"angular": "~1.3.17"
   }
 }

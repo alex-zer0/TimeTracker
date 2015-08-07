@@ -15,7 +15,22 @@
 					scope.clickEvent = function ($event) {
 						console.log($event);
 					};
-					console.log(scope.pageSettings.title);
+					scope.dateOptions = {
+						format: 'MM/dd',
+						isOpened: false,
+						options: {
+							startingDay: 1
+						}
+					};
+					scope.projectOptions = {
+						date: new Date()
+					};
+					scope.openCalendar = function ($event) {
+						$event.preventDefault();
+						$event.stopPropagation();
+						console.log($event);
+						scope.dateOptions.isOpened = true;
+					};
 				}
 			};
 		});
