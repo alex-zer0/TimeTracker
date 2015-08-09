@@ -9,9 +9,7 @@
 	 * Controller of the timeTrackerApp
 	 */
 	angular.module('timeTrackerApp')
-		.controller('timeTrackerCtrl', function ($scope) {
-			$scope.pageSettings = {
-				title: 'Time Tracker'
-			};
-		});
+		.controller('timeTrackerCtrl', ['$scope', 'pageSettings', function ($scope, pageSettings) {
+			$scope.pageSettings = pageSettings;
+		}]);
 })();

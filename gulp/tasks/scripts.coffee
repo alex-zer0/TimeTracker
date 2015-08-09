@@ -22,7 +22,14 @@ gulp.task 'scripts', ->
 			'components/svg4everybody/svg4everybody.js'
 			'app/scripts/common.js'
 			'app/scripts/controllers/time-tracker.js'
+			'app/scripts/controllers/modal-create-project.js'
 			'app/scripts/directives/project-form.js'
+			'app/scripts/directives/task-template.js'
+			'app/scripts/filters/time.js'
+			'app/scripts/filters/search-projects.js'
+			'app/scripts/services/local-storage.js'
+			'app/scripts/services/date-helper.js'
+			'app/scripts/services/page.js'
 		]
 		.pipe plumber errorHandler: errorHandler
 		.pipe concat 'common.min.js'

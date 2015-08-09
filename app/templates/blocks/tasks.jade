@@ -1,0 +1,36 @@
+div.task-template(tasks='tasks' ng-repeat='item in tasks track by item.id')
+	p.task-template__description(ng-click='descrEdit($index)')
+		= '{{item.description || "No description."}}'
+	input.form-control.task-template__description--editor(type='text' placeholder='No description...' ng-model='item.description'
+		ng-show='item.editDescr' ng-blur='descrEditCancel($index)' ng-keyup='descrEditCancel($index, $event)')
+	div.task-template__link.btn-group
+		button.btn.btn-default.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+			span.glyphicon.glyphicon-plus(ng-show='!item.project.flag')
+			= ' {{item.project.title}}'
+		ul.dropdown-menu.projects-menu
+			li
+				input.form-control(type='text' ng-model='searchOptions.text' placeholder='Find project...')
+			li(ng-repeat='project in $parent.projects')
+				a(ng-click='setTitle($parent.$index, $index)')= '{{project.title}}'
+			li
+				a.btn(href='#' ng-click='createProject()')= 'Create Project'
+	div.task-template__right
+		button.btn.btn-default.task-template__right__price(popover='{{item.price}}' popover-title='Price (rur)')
+			span.glyphicon.glyphicon-usd
+		button.btn.btn-default.task-template__right__start(ng-click="start($index)")
+			span.glyphicon.glyphicon-play
+		div.btn-group.task-template__right__timedate(ng-click='openTime()')
+			input.form-control.text-center.dropdown-toggle(type='text' ng-model='item.time.value'
+				ng-blur='updateTime($index)' ng-keyup='console.log(this); updateTime($index, $event)' ng-class='{"white-bg": item.time.active}'
+				data-toggle='dropdown' aria-expanded='false')
+			p.text-center.dropdown-toggle.task-template__interval(data-toggle='dropdown' aria-expanded='false')
+				= '{{item.time.start}} - {{item.time.stop}}'
+			ul.dropdown-menu
+				label
+					= 'Start: '
+					input.form-control(type='text' ng-model='item.time.start' ng-blur='updateInterval($index)'
+						ng-keyup='updateInterval($index, $event)')
+				label
+					= 'Stop: '
+					input.form-control(type='text' ng-model='item.time.stop' ng-blur='updateInterval($index)'
+						ng-keyup='updateInterval($index, $event)')

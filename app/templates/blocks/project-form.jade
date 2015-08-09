@@ -1,21 +1,33 @@
 div.project-form
-	input.form-control.project-form__description(type='text' placeholder='What are you working on?')
-	button.btn.btn-default.project-form__link.dropdown-toggle#project-settings(data-toggle='dropdown' aria-expanded='false')
-		span.glyphicon.glyphicon-plus
-		= ' SELECT PROJECT'
-	ul.dropdown-menu.projects-menu(aria-labelledby='project-settings')
-		li
-			input.form-control(type='text' placeholder='Find project...')
-		li
-			a(href='#')= 'Action'
-		li
-			a(href='#')= 'Another Action'
-		li
-			a.btn(href='#')= 'Create Project'
-	button.btn.btn-default.project-form__price
+	input.form-control.project-form__description(type='text' placeholder='What are you working on?' ng-model='projectOptions.descr')
+	div.project-form__link.btn-group
+		button.btn.btn-default.dropdown-toggle(data-toggle='dropdown' aria-expanded='false')
+			span.glyphicon.glyphicon-plus(ng-show='!projectOptions.project.flag')
+			= ' {{projectOptions.project.title}}'
+		ul.dropdown-menu.projects-menu
+			li
+				input.form-control(type='text' ng-model='searchOptions.text' placeholder='Find project...')
+			li(ng-repeat='project in projects')
+				a(href='#' ng-click='setProject($index)')= '{{project.title}}'
+			li
+				a.btn(href='#' ng-click='createProject()')= 'Create Project'
+	button.btn.btn-default.project-form__price(popover-template='"popover-price.html"' popover-title='Price (rur)')
 		span.glyphicon.glyphicon-usd
-	input.form-control.text-center.project-form__time(type='text' placeholder='{{projectOptions.time}}')
+	div.project-form__time.btn-group
+		input.form-control.text-center(type='text' ng-model='projectOptions.time.value'
+			data-toggle='dropdown' aria-expanded='false' ng-click='openTime()'
+			ng-blur='updateTime()' ng-keyup='updateTime($event)')
+		div.dropdown-menu.time-menu
+			label
+				= 'Start: '
+				input.form-control(type='text' ng-model='projectOptions.time.start' ng-blur='updateInterval()'
+					ng-keyup='updateInterval($event)')
+			label
+				= 'Stop: '
+				input.form-control(type='text' ng-model='projectOptions.time.stop' ng-blur='updateInterval()' ng-keyup='updateInterval($event)')
 	input.project-form__date.form-control(type='text' ng-model='projectOptions.date' close-text="Close" is-open='dateOptions.isOpened'
 		datepicker-popup="{{dateOptions.format}}" datepicker-options="dateOptions.options" ng-click="openCalendar($event)")
 	span.glyphicon.glyphicon-calendar
-	button.btn.btn-default.project-form__submit(ng-click='clickEvent($event)')= 'SAVE'
+	button.btn.project-form__submit(ng-click='toggleTimer()'
+		ng-class='{"btn-success": !projectOptions.isStarted, "btn-warning": projectOptions.isStarted}')
+		= '{{projectOptions.state}}'

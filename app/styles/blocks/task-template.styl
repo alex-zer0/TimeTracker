@@ -1,0 +1,70 @@
+.task-template
+	size(100%, 100%)
+	background #eee
+	border-radius 0
+	display table
+	position relative
+	padding 10px 15px 5px 15px
+	margin 5px 0
+
+	.task-template__description
+		float left
+		max-width 400px
+		max-height 100%
+		overflow hidden
+		display inline
+		padding-top 7px
+		color #666
+		margin-right 10px
+
+	.task-template__description--editor
+		position absolute
+		z-index 10
+		top 0
+		left 0
+		size(300px, 100%)
+
+	.task-template__link
+		position relative
+		cleanBorder()
+		display inline
+		background transparent
+		ul
+			top -15px
+
+	.task-template__right
+		float right
+		display inline-table
+
+		.task-template__right__timedate
+			max-width 200px
+			float right
+			display inline
+			p
+				box-shadow none !important
+			input
+				width 100px
+				cleanBorder()
+				float left
+				background transparent
+				box-shadow none
+				margin 0
+			.white-bg
+				background #fff
+			ul
+				padding 10px 20px
+				input
+					float none
+					border 1px #ccc solid
+					border-radius 3px
+
+			p
+				display inline
+				float right
+				padding-top 7px
+
+	.btn-default
+		cleanBorder()
+		float none
+		display inline
+		background transparent

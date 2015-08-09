@@ -16,7 +16,9 @@
 			'ngResource',
 			'ngRoute',
 			'ngSanitize',
-			'ngTouch',
 			'ui.bootstrap'
-		]);
+		])
+		.run(function (localStorage) {
+			localStorage.initDefaults();
+		});
 })();

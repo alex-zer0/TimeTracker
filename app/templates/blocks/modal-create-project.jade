@@ -1,0 +1,9 @@
+script(type="text/ng-template" id='modal-create-project.html')
+	div.modal--header
+		h3.modal--header__title= 'Create your project!'
+	div.modal--body
+		input.form-control(type='text' ng-model='title')
+		select(ng-options='item.title for item in workspaces track by item.id' ng-model='workspace')
+	div.modal--footer
+		button.btn.btn-success(ng-click='confirm()')= 'Create'
+		button.btn.btn-submit(ng-click='cancel()')= 'Cancel'

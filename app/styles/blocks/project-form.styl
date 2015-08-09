@@ -16,12 +16,25 @@
 
 	&__link
 		size(20%, 100%)
+		float left
+		button
+			margin-top 8px
+			&:hover
+			&:focus
+			&:active
+				  background transparent !important
 
 	&__time
 		size(15%, 100%)
 		border-left 1px #ccc solid !important
 		border-right 1px #ccc solid !important
-		font-size 18px
+		float left
+		.time-menu
+			padding 10px 20px
+		input
+			font-size 18px
+			size(100%)
+
 
 	&__date
 		size(15%, 100%)
@@ -44,10 +57,17 @@
 		float right !important
 		size(10%, 100%)
 
+	.dropdown-menu
+		margin-left -60px
+
 	.projects-menu
 		position absolute
-		left 35%
+		margin 0
 		top 0
+		input
+			border-bottom 1px #ccc solid;
+		a.btn
+			color #8dc352
 
 	.glyphicon-plus
 		font-size 14px
