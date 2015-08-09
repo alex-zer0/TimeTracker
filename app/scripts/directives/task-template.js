@@ -57,7 +57,7 @@
 
 						scope.start = function ($index) {
 							scope.projectOptions.descr = scope.tasks[$index].description;
-							scope.projectOptions.project = scope.tasks[$index].project;
+							scope.projectOptions.project = angular.copy(scope.tasks[$index].project);
 							scope.projectOptions.price = scope.tasks[$index].price;
 							scope.projectOptions.time = {
 								value: '00:00:00'

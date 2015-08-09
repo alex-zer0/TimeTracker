@@ -23,7 +23,7 @@
 							scope.tasks.push({
 								id: scope.tasks.length + 1,
 								description: scope.projectOptions.descr,
-								project: scope.projectOptions.project,
+								project: angular.copy(scope.projectOptions.project),
 								price: scope.projectOptions.price,
 								date: scope.projectOptions.date,
 								time: angular.copy(scope.projectOptions.time)
